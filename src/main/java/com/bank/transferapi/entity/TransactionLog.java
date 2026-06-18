@@ -6,9 +6,8 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
-
 @Entity
-@Table(name = "transaction_log")
+@Table(name = "transactions")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,15 +15,30 @@ import java.util.UUID;
 public class TransactionLog {
 
     @Id
+    @Column(name = "transaction_id")
     private UUID transactionId;
 
-    private UUID accountId;
+    @Column(name = "source_account_number")
+    private String sourceAccountNumber;
 
+    @Column(name = "destination_account_number")
+    private String destinationAccountNumber;
+
+    @Column(name = "transaction_type")
     private String transactionType;
 
     private BigDecimal amount;
 
+    @Column(name = "balance_after")
+    private BigDecimal balanceAfter;
+
     private String status;
 
+    @Column(name = "reference_id")
+    private String referenceId;
+
+    private String remarks;
+
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 }
