@@ -33,4 +33,11 @@ public class AccountController {
 
         return accountService.withdraw(request);
     }
+    
+    @PostMapping("/transfer")
+    public String transfer(
+            @RequestBody TransferRequest request) {
+
+        return accountService.transfer(request);
+    }
 }
