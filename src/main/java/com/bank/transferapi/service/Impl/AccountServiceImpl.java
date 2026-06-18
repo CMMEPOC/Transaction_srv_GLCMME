@@ -142,4 +142,31 @@ public class AccountServiceImpl implements AccountService {
         transactionRepository.save(transaction);
         return "Transfer successful";
     }
+
+        @Override
+    public TransactionResponse getTransactionById(UUID transactionId) {
+
+        TransactionLog transaction = transactionRepository.findById(transactionId)
+                .orElseThrow(() ->
+                        new RuntimeException("Transaction not found"));
+
+        return mapToResponse(transaction);
+    }
+
+    private TransactionResponse mapToResponse(TransactionLog transaction) {
+
+        TransactionResponse response = new TransactionResponse();
+
+        response.setTransactionId(transaction.getTransactionId());
+        response.setSourceAccountNumber(transaction.getSourceAccountNumber());
+        response.setDestinationAccountNumber(transaction.getDestinationAccountNumber());
+        response.setTransactionType(transaction.getTransactionType());
+        response.setAmount(transaction.getAmount());
+        response.setBalanceAfter(transaction.getBalanceAfter());
+        response.setStatus(transaction.getStatus());
+        response.setReferenceId(transaction.getReferenceId());
+        response.setRemarks(transaction.getRemarks());
+        response.setCreatedAt(transaction.getCreatedAt());
+        return response;
+    }
 }
