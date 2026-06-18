@@ -35,4 +35,10 @@ public class AccountController {
             @RequestBody TransferRequest request) {
         return accountService.transfer(request);
     }
+
+    @GetMapping("/transactions/{transactionId}")
+    public TransactionResponse getTransactionById(
+            @PathVariable UUID transactionId) {
+        return accountService.getTransactionById(transactionId);
+    }
 }
