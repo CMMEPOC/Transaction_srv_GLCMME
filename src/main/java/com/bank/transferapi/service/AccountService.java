@@ -4,6 +4,7 @@ import com.bank.transferapi.dto.BalanceResponse;
 import com.bank.transferapi.dto.DepositRequest;
 import com.bank.transferapi.dto.TransferRequest;
 import com.bank.transferapi.dto.WithdrawRequest;
+import com.bank.transferapi.dto.TransactionResponse;
 
 public interface AccountService {
 
@@ -14,4 +15,6 @@ public interface AccountService {
     String withdraw(WithdrawRequest request);
 
     String transfer(TransferRequest request);
+
+    TransactionResponse getTransactionById(UUID transactionId);
 }
