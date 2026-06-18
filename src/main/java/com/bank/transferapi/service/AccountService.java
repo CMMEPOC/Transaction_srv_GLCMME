@@ -5,6 +5,7 @@ import com.bank.transferapi.dto.DepositRequest;
 import com.bank.transferapi.dto.TransferRequest;
 import com.bank.transferapi.dto.WithdrawRequest;
 import com.bank.transferapi.dto.TransactionResponse;
+import java.util.UUID;
 
 public interface AccountService {
 
