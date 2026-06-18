@@ -7,4 +7,5 @@ import java.util.UUID;
 
 public interface TransactionRepository
         extends JpaRepository<TransactionLog, UUID> {
+     boolean existsByReferenceId(String referenceId);           
 }
