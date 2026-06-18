@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "account")
+@Table(name = "accounts")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,14 +16,14 @@ import java.util.UUID;
 public class Account {
 
     @Id
+    @Column(name = "account_id")
     private UUID accountId;
 
-    @Column(unique = true)
+    @Column(name = "account_number")
     private String accountNumber;
 
-    private String accountHolderName;
-
-    private BigDecimal balance;
+    @Column(name = "current_balance")
+    private BigDecimal currentBalance;
 
     private String status;
 
