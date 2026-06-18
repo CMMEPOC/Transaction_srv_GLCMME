@@ -69,8 +69,8 @@ public class AccountServiceImpl implements AccountService {
     ) {
         TransactionLog transaction = new TransactionLog();
         transaction.setTransactionId(UUID.randomUUID());
-        transaction.setDestinationAccountNumber(String.valueOf(account.getAccountId()));
-        transaction.setSourceAccountNumber(String.valueOf(account.getAccountId()));
+        transaction.setDestinationAccountNumber(String.valueOf(account.getAccountNumber()));
+        transaction.setSourceAccountNumber(String.valueOf(account.getAccountNumber()));
         transaction.setTransactionType(type);
         transaction.setAmount(amount);
         transaction.setStatus("SUCCESS");
