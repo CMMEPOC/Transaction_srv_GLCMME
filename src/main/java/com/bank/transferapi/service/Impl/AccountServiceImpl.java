@@ -75,8 +75,13 @@ public class AccountServiceImpl implements AccountService {
         transaction.setAmount(amount);
         transaction.setStatus("SUCCESS");
         transaction.setCreatedAt(LocalDateTime.now());
-        transaction.setReferenceId("RF1234567");
-        transaction.setRemarks("credited/debited");
+        String referenceId = "RF" + UUID.randomUUID()
+        .toString()
+        .replace("-", "")
+        .substring(0, 10)
+        .toUpperCase();
+        transaction.setReferenceId(referenceId);
+        transaction.setRemarks(type);
         transactionRepository.save(transaction);
     }
 
